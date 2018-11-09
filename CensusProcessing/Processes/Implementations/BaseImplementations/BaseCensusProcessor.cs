@@ -11,6 +11,9 @@ namespace CensusProcessing.Processes.Implementations.BaseImplementations
             _census = census;
         }
 
-        public virtual void ValidateCensus() { }
+        public virtual void ValidateCensus()
+        {
+            // Forgot that this is a .net framework project
+        }
     }
 }
