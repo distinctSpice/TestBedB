@@ -40,10 +40,5 @@ namespace CensusProcessing.Processes.Implementations
                 };
             }
         }
-
-        public override void ValidateCensus()
-        {
-            base.ValidateCensus();
-        }
     }
 }
