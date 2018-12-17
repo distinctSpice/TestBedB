@@ -7,6 +7,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CensusProcessing\CensusProcessing.csproj" />
+    <ProjectReference Include="..\ConfigPropertyMapping\ConfigPropertyMapping.csproj" />
+    <ProjectReference Include="..\Derangement\Derangement.csproj" />
+    <ProjectReference Include="..\HexColors\HexColors.csproj" />
+    <ProjectReference Include="..\QueryString\QueryStringProcessing.csproj" />
   </ItemGroup>
 
 </Project>
