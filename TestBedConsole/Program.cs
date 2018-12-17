@@ -69,6 +69,7 @@ namespace TestBedConsole
             var computer = new DerangementComputer();
             Console.WriteLine(computer.GetDerangement(5));
             Console.WriteLine(string.Join(Environment.NewLine, computer.GetDerangements(new List<ulong> { 6, 9, 14 })));
+            Console.WriteLine(string.Join(Environment.NewLine, computer.GetDerangements(Enumerable.Range(0, 100).Select(n => (ulong)n))));
 
             Console.ReadKey();
         }
