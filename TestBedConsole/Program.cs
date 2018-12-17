@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using ConfigPropertyMapping;
 using System.Linq;
 using Derangement;
+using Performance;
 
 namespace TestBedConsole
 {
@@ -65,11 +66,15 @@ namespace TestBedConsole
             //    var niceKids = childrenList.Where(child => child.IsNice);   // Gonna find out who's naughty and nice
             //    santa.ComeToTown(niceKids);                                     // Santa Claus is coming to town
             //}
-
-            var computer = new DerangementComputer();
-            Console.WriteLine(computer.GetDerangement(5));
-            Console.WriteLine(string.Join(Environment.NewLine, computer.GetDerangements(new List<ulong> { 6, 9, 14 })));
-            Console.WriteLine(string.Join(Environment.NewLine, computer.GetDerangements(Enumerable.Range(0, 100).Select(n => (ulong)n))));
+            
+            using (var tester = new PerformanceTester())
+            {
+                var computer = new DerangementComputer();
+                Console.WriteLine(computer.GetDerangement(5));
+                Console.WriteLine(string.Join(Environment.NewLine, computer.GetDerangements(new List<ulong> { 6, 9, 14 })));
+                Console.WriteLine(string.Join(Environment.NewLine, computer.GetDerangements(Enumerable.Range(0, 100).Select(n => (ulong)n))));
+                Console.WriteLine(tester.Result);
+            }
 
             Console.ReadKey();
         }
