@@ -12,6 +12,9 @@ namespace Derangement
                 return 0;
             else
                 return (n - 1) * (GetDerangement(n - 1) + GetDerangement(n - 2));
+
+            //Code Golf
+            //return n == 0 ? 1 : n == 1 ? 0 : (n - 1) * (GetDerangement(n - 1) + GetDerangement(n - 2));
         }
 
         public IEnumerable<ulong> GetDerangements(IEnumerable<ulong> ns)
