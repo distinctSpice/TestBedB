@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,8 +10,16 @@
     <ProjectReference Include="..\ConfigPropertyMapping\ConfigPropertyMapping.csproj" />
     <ProjectReference Include="..\Derangement\Derangement.csproj" />
     <ProjectReference Include="..\HexColors\HexColors.csproj" />
+    <ProjectReference Include="..\NQueensProblem\NQueensProblem.csproj" />
     <ProjectReference Include="..\Performance\Performance.csproj" />
     <ProjectReference Include="..\QueryString\QueryStringProcessing.csproj" />
+    <ProjectReference Include="..\UPC\UPC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Data">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

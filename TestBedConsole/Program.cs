@@ -9,6 +9,9 @@ using ConfigPropertyMapping;
 using System.Linq;
 using Derangement;
 using Performance;
+using UPC;
+using System.Data.SqlClient;
+using NQueensProblem;
 
 namespace TestBedConsole
 {
@@ -66,17 +69,69 @@ namespace TestBedConsole
             //    var niceKids = childrenList.Where(child => child.IsNice);   // Gonna find out who's naughty and nice
             //    santa.ComeToTown(niceKids);                                     // Santa Claus is coming to town
             //}
-            
-            using (var tester = new PerformanceTester())
-            {
-                var computer = new DerangementComputer();
-                Console.WriteLine(computer.GetDerangement(5));
-                Console.WriteLine(string.Join(Environment.NewLine, computer.GetDerangements(new List<ulong> { 6, 9, 14 })));
-                Console.WriteLine(string.Join(Environment.NewLine, computer.GetDerangements(Enumerable.Range(0, 100).Select(n => (ulong)n))));
-                Console.WriteLine(tester.Result);
-            }
 
+            //using (var tester = new PerformanceTester())
+            //{
+            //    var computer = new DerangementComputer();
+            //    Console.WriteLine(computer.GetDerangement(5));
+            //    Console.WriteLine(string.Join(Environment.NewLine, computer.GetDerangements(new List<ulong> { 6, 9, 14 })));
+            //    Console.WriteLine(string.Join(Environment.NewLine, computer.GetDerangements(Enumerable.Range(0, 100).Select(n => (ulong)n))));
+            //    Console.WriteLine(tester.Result);
+            //}
+
+            //var upcDigitChecker = new DigitChecker(1234567);
+            //Console.WriteLine(upcDigitChecker.GetCheckDigit());
+
+            //Console.ReadKey();
+
+            //var dbNullResult = new System.Data.SqlClient.SqlParameter
+
+            //Console.Write("Please input a number: ");
+            //Console.WriteLine(string.Concat(Console.ReadLine().Select(charNum => char.GetNumericValue(charNum) + 1)));
+            //Console.ReadKey();
+
+            var challenges = new List<List<int>> {
+                new List<int> { 4, 2, 7, 3, 6, 8, 5, 1 },
+                new List<int> { 2, 5, 7, 4, 1, 8, 6, 3 },
+                new List<int> { 5, 3, 1, 4, 2, 8, 6, 3 },
+                new List<int> { 5, 8, 2, 4, 7, 1, 3, 6 },
+                new List<int> { 4, 3, 1, 8, 1, 3, 5, 2 },
+                new List<int> { 8, 6, 4, 2, 7, 1, 3, 5 },
+            };
+
+            foreach (var challenge in challenges)
+            {
+                try
+                {
+                    var nQueensChecker = new Checker(challenge.ToArray());
+                    Console.WriteLine(nQueensChecker.Check());
+                    Console.WriteLine(string.Concat(nQueensChecker.TryToFixDiagonalDefects()));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Console.WriteLine(Environment.NewLine);
+                }
+            }
             Console.ReadKey();
+
+            //int range = Convert.ToInt32(Console.ReadLine());
+            //var builder = new Builder(range);
+            //Console.WriteLine(string.Concat(builder.Build(0)));
+
+            //for (int i = 0; i < range; i++)
+            //{
+            //    for (int j = 0; j < range; j++)
+            //    {
+            //        Console.Write(builder.Board[i, j] + " ");
+            //    }
+            //    Console.Write("\n");
+            //}
+
+            //Console.ReadKey();
         }
 
         public static string ConfigMapper(string type)
